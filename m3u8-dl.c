@@ -103,6 +103,10 @@ struct ts_w  *get_ts(struct m3u8_fb *m3u8,char *buf,struct ts_w *ts){
 	if(m3u8->fp==0)
 		exit (-1);;
 	while(feof(m3u8->fp)==0){
+		cao=strlen(buf);                                                          
+		for(int i=0; i<cao; i++)                                                           
+			if(buf[i]=='\r'||buf[i]=='\n')
+                                buf[i]=0;
 		fgets(buf, 1024, m3u8->fp);
 		ts2=index_m3u8(m3u8,buf,ts);
 		if(ts2)
