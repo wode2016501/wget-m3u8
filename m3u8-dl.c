@@ -103,7 +103,7 @@ struct ts_w  *get_ts(struct m3u8_fb *m3u8,char *buf,struct ts_w *ts){
 	if(m3u8->fp==0)
 		exit (-1);;
 	while(feof(m3u8->fp)==0){
-		cao=strlen(buf);                                                          
+		int cao=strlen(buf);                                                          
 		for(int i=0; i<cao; i++)                                                           
 			if(buf[i]=='\r'||buf[i]=='\n')
                                 buf[i]=0;
